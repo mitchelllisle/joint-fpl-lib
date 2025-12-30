@@ -1,6 +1,6 @@
-import {colours} from "../utils/colours";
-import {calculateGini} from "../utils/gini";
-import {noDataTextMark} from "../utils/noDataTextMark";
+import {colours} from "../utils/colours.js";
+import {calculateGini} from "../utils/gini.js";
+import {noDataTextMark} from "../utils/noDataTextMark.js";
 
 export function giniIndexChart(data, {Plot, d3, width} = {}) {
     console.log("Gini chart - input data length:", data.length);

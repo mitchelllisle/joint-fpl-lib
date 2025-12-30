@@ -1,4 +1,4 @@
-import {colours} from "../utils/colours";
+import {colours} from "../utils/colours.js";
 
 export function bumpChart(data, {Plot, d3, x = "gameweek", y = "rank", z = "team", width} = {}) {
     const rank = Plot.stackY2({x, z, order: y});

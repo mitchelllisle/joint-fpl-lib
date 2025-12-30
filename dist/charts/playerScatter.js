@@ -1,4 +1,4 @@
-import { colours } from "../utils/colours";
+import { colours } from "../utils/colours.js";
 export function playerScatter(data, { Plot, d3, width } = {}) {
     console.log("Scatter chart - input data length:", data.length);
     const x = "total_points";

@@ -1,4 +1,4 @@
-import {colours} from "../utils/colours";
+import {colours} from "../utils/colours.js";
 
 export function consistencyBullet(data, {Plot, d3, width} = {}) {
     // Calculate stats per owner

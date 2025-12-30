@@ -1,4 +1,4 @@
-import { colours } from "../utils/colours";
+import { colours } from "../utils/colours.js";
 export function bonusPoints(data, { Plot, d3, width } = {}) {
     // Filter to only players with some minutes
     const activeData = data.filter(d => d.minutes > 0);

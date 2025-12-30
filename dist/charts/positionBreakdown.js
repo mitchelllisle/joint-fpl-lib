@@ -1,4 +1,4 @@
-import { colours } from "../utils/colours";
+import { colours } from "../utils/colours.js";
 export function positionBreakdown(data, { Plot, d3, width } = {}) {
     // Only include starting 11
     const startingData = data.filter(d => d.position <= 11);

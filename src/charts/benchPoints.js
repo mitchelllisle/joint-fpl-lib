@@ -1,4 +1,4 @@
-import {colours} from "../utils/colours";
+import {colours} from "../utils/colours.js";
 
 export function benchPoints(data, {Plot, d3, width} = {}) {
     // Position 12-15 are bench players (11 starting + 4 bench)

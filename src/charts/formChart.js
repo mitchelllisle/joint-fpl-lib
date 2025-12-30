@@ -1,4 +1,4 @@
-import {colours} from "../utils/colours";
+import {colours} from "../utils/colours.js";
 
 export function formChart(data, {Plot, d3, width} = {}) {
     // Get last 5 gameweeks
