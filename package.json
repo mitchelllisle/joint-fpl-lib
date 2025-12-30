@@ -7,88 +7,31 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./utils/colours": {
-      "import": "./dist/utils/colours.js",
-      "types": "./dist/utils/colours.d.ts"
-    },
-    "./utils/colours.js": {
-      "import": "./dist/utils/colours.js",
-      "types": "./dist/utils/colours.d.ts"
-    },
-    "./utils/gini": {
-      "import": "./dist/utils/gini.js",
-      "types": "./dist/utils/gini.d.ts"
-    },
-    "./utils/gini.js": {
-      "import": "./dist/utils/gini.js",
-      "types": "./dist/utils/gini.d.ts"
-    },
-    "./utils/noDataTextMark": {
-      "import": "./dist/utils/noDataTextMark.js",
-      "types": "./dist/utils/noDataTextMark.d.ts"
-    },
-    "./utils/noDataTextMark.js": {
-      "import": "./dist/utils/noDataTextMark.js",
-      "types": "./dist/utils/noDataTextMark.d.ts"
-    },
-    "./charts/bumpChart": {
-      "import": "./dist/charts/bumpChart.js"
-    },
-    "./charts/pointsPerWeek": {
-      "import": "./dist/charts/pointsPerWeek.js"
-    },
-    "./charts/pointsBarChart": {
-      "import": "./dist/charts/pointsBarChart.js"
-    },
-    "./charts/giniIndexChart": {
-      "import": "./dist/charts/giniIndexChart.js"
-    },
-    "./charts/benchPoints": {
-      "import": "./dist/charts/benchPoints.js"
-    },
-    "./charts/positionBreakdown": {
-      "import": "./dist/charts/positionBreakdown.js"
-    },
-    "./charts/consistencyBullet": {
-      "import": "./dist/charts/consistencyBullet.js"
-    },
-    "./charts/formChart": {
-      "import": "./dist/charts/formChart.js"
-    },
-    "./charts/bonusPoints": {
-      "import": "./dist/charts/bonusPoints.js"
-    },
-    "./charts/bumpChart.js": {
-      "import": "./dist/charts/bumpChart.js"
-    },
-    "./charts/pointsPerWeek.js": {
-      "import": "./dist/charts/pointsPerWeek.js"
-    },
-    "./charts/pointsBarChart.js": {
-      "import": "./dist/charts/pointsBarChart.js"
-    },
-    "./charts/giniIndexChart.js": {
-      "import": "./dist/charts/giniIndexChart.js"
-    },
-    "./charts/benchPoints.js": {
-      "import": "./dist/charts/benchPoints.js"
-    },
-    "./charts/positionBreakdown.js": {
-      "import": "./dist/charts/positionBreakdown.js"
-    },
-    "./charts/consistencyBullet.js": {
-      "import": "./dist/charts/consistencyBullet.js"
-    },
-    "./charts/formChart.js": {
-      "import": "./dist/charts/formChart.js"
-    },
-    "./charts/bonusPoints.js": {
-      "import": "./dist/charts/bonusPoints.js"
-    }
+    ".": "./dist/index.js",
+    "./utils/colours": "./dist/utils/colours.js",
+    "./utils/colours.js": "./dist/utils/colours.js",
+    "./utils/gini": "./dist/utils/gini.js",
+    "./utils/gini.js": "./dist/utils/gini.js",
+    "./utils/noDataTextMark": "./dist/utils/noDataTextMark.js",
+    "./utils/noDataTextMark.js": "./dist/utils/noDataTextMark.js",
+    "./charts/bumpChart": "./dist/charts/bumpChart.js",
+    "./charts/pointsPerWeek": "./dist/charts/pointsPerWeek.js",
+    "./charts/pointsBarChart": "./dist/charts/pointsBarChart.js",
+    "./charts/giniIndexChart": "./dist/charts/giniIndexChart.js",
+    "./charts/benchPoints": "./dist/charts/benchPoints.js",
+    "./charts/positionBreakdown": "./dist/charts/positionBreakdown.js",
+    "./charts/consistencyBullet": "./dist/charts/consistencyBullet.js",
+    "./charts/formChart": "./dist/charts/formChart.js",
+    "./charts/bonusPoints": "./dist/charts/bonusPoints.js",
+    "./charts/bumpChart.js": "./dist/charts/bumpChart.js",
+    "./charts/pointsPerWeek.js": "./dist/charts/pointsPerWeek.js",
+    "./charts/pointsBarChart.js": "./dist/charts/pointsBarChart.js",
+    "./charts/giniIndexChart.js": "./dist/charts/giniIndexChart.js",
+    "./charts/benchPoints.js": "./dist/charts/benchPoints.js",
+    "./charts/positionBreakdown.js": "./dist/charts/positionBreakdown.js",
+    "./charts/consistencyBullet.js": "./dist/charts/consistencyBullet.js",
+    "./charts/formChart.js": "./dist/charts/formChart.js",
+    "./charts/bonusPoints.js": "./dist/charts/bonusPoints.js"
   },
   "scripts": {
     "build": "tsc",
