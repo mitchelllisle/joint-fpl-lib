@@ -49,6 +49,33 @@
     },
     "./charts/bonusPoints": {
       "import": "./dist/charts/bonusPoints.js"
+    },
+    "./charts/bumpChart.js": {
+      "import": "./dist/charts/bumpChart.js"
+    },
+    "./charts/pointsPerWeek.js": {
+      "import": "./dist/charts/pointsPerWeek.js"
+    },
+    "./charts/pointsBarChart.js": {
+      "import": "./dist/charts/pointsBarChart.js"
+    },
+    "./charts/giniIndexChart.js": {
+      "import": "./dist/charts/giniIndexChart.js"
+    },
+    "./charts/benchPoints.js": {
+      "import": "./dist/charts/benchPoints.js"
+    },
+    "./charts/positionBreakdown.js": {
+      "import": "./dist/charts/positionBreakdown.js"
+    },
+    "./charts/consistencyBullet.js": {
+      "import": "./dist/charts/consistencyBullet.js"
+    },
+    "./charts/formChart.js": {
+      "import": "./dist/charts/formChart.js"
+    },
+    "./charts/bonusPoints.js": {
+      "import": "./dist/charts/bonusPoints.js"
     }
   },
   "scripts": {
