@@ -1,5 +1,5 @@
 {
-  "name": "@joint-fantasy/fpl-charts",
+  "name": "joint-fpl-lib",
   "version": "0.1.0",
   "description": "TypeScript library for building Fantasy Premier League Draft dashboards with Observable Framework",
   "type": "module",
@@ -10,18 +10,53 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./utils/colours": {
+      "import": "./dist/utils/colours.js",
+      "types": "./dist/utils/colours.d.ts"
+    },
+    "./utils/gini": {
+      "import": "./dist/utils/gini.js",
+      "types": "./dist/utils/gini.d.ts"
+    },
+    "./utils/noDataTextMark": {
+      "import": "./dist/utils/noDataTextMark.js",
+      "types": "./dist/utils/noDataTextMark.d.ts"
+    },
+    "./charts/bumpChart": {
+      "import": "./dist/charts/bumpChart.js"
+    },
+    "./charts/pointsPerWeek": {
+      "import": "./dist/charts/pointsPerWeek.js"
+    },
+    "./charts/pointsBarChart": {
+      "import": "./dist/charts/pointsBarChart.js"
+    },
+    "./charts/giniIndexChart": {
+      "import": "./dist/charts/giniIndexChart.js"
+    },
+    "./charts/benchPoints": {
+      "import": "./dist/charts/benchPoints.js"
+    },
+    "./charts/positionBreakdown": {
+      "import": "./dist/charts/positionBreakdown.js"
+    },
+    "./charts/consistencyBullet": {
+      "import": "./dist/charts/consistencyBullet.js"
+    },
+    "./charts/formChart": {
+      "import": "./dist/charts/formChart.js"
+    },
+    "./charts/bonusPoints": {
+      "import": "./dist/charts/bonusPoints.js"
     }
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "tsc",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "lint": "eslint src --ext .ts",
-    "prepublishOnly": "npm run build && npm test"
+    "lint": "eslint src --ext .ts"
   },
   "keywords": [
     "fantasy-premier-league",
