@@ -2,7 +2,56 @@
  * API client for Fantasy Premier League Draft endpoints
  */
 
-import type { BootstrapStatic, LeagueDetails } from '../types/index.js';
+import type { BootstrapStatic, LeagueDetails, Player, GameWeek, LeagueEntry, Standing } from '../types/index.js';
+
+/**
+ * Entry history response from the API
+ */
+export interface EntryHistory {
+  history: GameweekHistory[];
+}
+
+/**
+ * Gameweek history for a single entry
+ */
+export interface GameweekHistory {
+  event: number;
+  points: number;
+  total_points: number;
+  rank: number;
+  rank_sort: number;
+  event_transfers: number;
+  event_transfers_cost: number;
+  value: number;
+}
+
+/**
+ * Picks response from the API
+ */
+export interface PicksResponse {
+  picks: Pick[];
+  entry_history: GameweekHistory;
+  subs: Substitution[];
+}
+
+/**
+ * A player pick for a gameweek
+ */
+export interface Pick {
+  element: number;
+  position: number;
+  is_captain: boolean;
+  is_vice_captain: boolean;
+}
+
+/**
+ * A substitution made during a gameweek
+ */
+export interface Substitution {
+  element_in: number;
+  element_out: number;
+  event: number;
+}
 
 export interface GameweekData {
   gameweek: number;
@@ -30,19 +79,10 @@ export interface StandingsEntry {
   last_rank: number;
 }
 
-export interface SquadPlayer {
-  id: number;
-  web_name: string;
-  first_name: string;
-  second_name: string;
-  team: number;
-  element_type: number;
-  now_cost: number;
-  total_points: number;
+export interface SquadPlayer extends Player {
   owner: string;
   team_name: string;
   position: number;
-  [key: string]: any;
 }
 
 /**
@@ -93,7 +133,7 @@ export class PremierLeagueAPI {
    * @param entryId - The entry ID
    * @returns Promise resolving to history data
    */
-  async getUserHistory(entryId: number): Promise<any> {
+  async getUserHistory(entryId: number): Promise<EntryHistory> {
     const response = await fetch(`${this.draftBaseUrl}/entry/${entryId}/history`);
     if (!response.ok) {
       throw new Error(`Failed to fetch user history: ${response.statusText}`);
@@ -108,7 +148,7 @@ export class PremierLeagueAPI {
    * @param gameweek - The gameweek number
    * @returns Promise resolving to picks data
    */
-  async getPicks(entryId: number, gameweek: number): Promise<any> {
+  async getPicks(entryId: number, gameweek: number): Promise<PicksResponse> {
     const response = await fetch(`${this.draftBaseUrl}/entry/${entryId}/event/${gameweek}`);
     if (!response.ok) {
       throw new Error(`Failed to fetch picks: ${response.statusText}`);
@@ -128,13 +168,13 @@ export class PremierLeagueAPI {
     const league_entries = details.league_entries;
 
     const standingsWithUsers = await Promise.all(
-      standings.map(async (s: any) => {
-        const user = league_entries.find((u: any) => u.id === s.league_entry);
+      standings.map(async (s: Standing) => {
+        const user = league_entries.find((u: LeagueEntry) => u.id === s.league_entry);
         if (!user) return [];
         
         const history = await this.getUserHistory(user.entry_id);
 
-        const gameweekData = (history.history || []).map((week: any) => ({
+        const gameweekData = (history.history || []).map((week: GameweekHistory) => ({
           gameweek: week.event,
           player_first_name: user.player_first_name,
           team: user.entry_name,
@@ -196,10 +236,10 @@ export class PremierLeagueAPI {
     const details = await this.getDetails(leagueId);
     const league_entries = details.league_entries;
 
-    const standings = details.standings.map((e: any) => ({
+    const standings = details.standings.map((e: Standing) => ({
       id: e.league_entry,
-      name: league_entries.find((u: any) => u.id === e.league_entry)?.entry_name || '',
-      user: league_entries.find((u: any) => u.id === e.league_entry)?.player_first_name || '',
+      name: league_entries.find((u: LeagueEntry) => u.id === e.league_entry)?.entry_name || '',
+      user: league_entries.find((u: LeagueEntry) => u.id === e.league_entry)?.player_first_name || '',
       rank: e.rank,
       total: e.total,
       event_total: e.event_total,
@@ -219,12 +259,12 @@ export class PremierLeagueAPI {
     const details = await this.getDetails(leagueId);
     const bootstrap = await this.getBootstrapStatic();
     
-    const currentEvent = bootstrap.events.find((e: any) => e.is_current);
+    const currentEvent = bootstrap.events.find((e: GameWeek) => e.is_current);
     const currentGameweek = currentEvent ? currentEvent.id : 1;
 
     // Create player map
-    const playerMap: Record<number, any> = {};
-    bootstrap.elements.forEach((player: any) => {
+    const playerMap: Record<number, Player> = {};
+    bootstrap.elements.forEach((player: Player) => {
       playerMap[player.id] = {
         ...player,
         web_name: player.web_name || `${player.first_name} ${player.second_name}`
@@ -233,11 +273,11 @@ export class PremierLeagueAPI {
 
     // Fetch picks for each team
     const squadsWithPicks = await Promise.all(
-      details.league_entries.map(async (entry: any) => {
+      details.league_entries.map(async (entry: LeagueEntry) => {
         try {
           const picksData = await this.getPicks(entry.entry_id, currentGameweek);
 
-          return picksData.picks.map((pick: any) => {
+          return picksData.picks.map((pick: Pick) => {
             const player = playerMap[pick.element];
             if (!player) return null;
 
@@ -247,7 +287,7 @@ export class PremierLeagueAPI {
               team_name: entry.entry_name,
               position: pick.position
             };
-          }).filter((p: any) => p !== null);
+          }).filter((p: SquadPlayer | null): p is SquadPlayer => p !== null);
         } catch (error) {
           console.error(`Error fetching picks for ${entry.player_first_name}:`, error);
           return [];

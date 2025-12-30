@@ -13,7 +13,12 @@ export type {
   GameweekData, 
   MatchResult, 
   StandingsEntry, 
-  SquadPlayer 
+  SquadPlayer,
+  EntryHistory,
+  GameweekHistory,
+  PicksResponse,
+  Pick,
+  Substitution
 } from './data/premierLeagueApi.js';
 export type { BootstrapStatic, LeagueDetails } from './types/index.js';
 

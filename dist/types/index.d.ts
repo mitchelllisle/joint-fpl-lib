@@ -41,7 +41,26 @@ export interface Player {
     bps: number;
     now_cost: number;
     form: string;
-    [key: string]: any;
+    status: string;
+    chance_of_playing_this_round: number | null;
+    chance_of_playing_next_round: number | null;
+    cost_change_start: number;
+    cost_change_event: number;
+    ep_next: string;
+    ep_this: string;
+    in_dreamteam: boolean;
+    news: string;
+    news_added: string | null;
+    selected_by_percent: string;
+    special: boolean;
+    points_per_game: string;
+    transfers_in: number;
+    transfers_out: number;
+    transfers_in_event: number;
+    transfers_out_event: number;
+    value_form: string;
+    value_season: string;
+    photo: string;
 }
 /**
  * Position type (GK, DEF, MID, FWD)
@@ -73,6 +92,7 @@ export interface LeagueDetails {
  * Entry in a draft league
  */
 export interface LeagueEntry {
+    id: number;
     entry_id: number;
     entry_name: string;
     player_first_name: string;
@@ -114,6 +134,9 @@ export interface Squad extends Player {
 export interface ChartOptions {
     width?: number;
     height?: number;
-    [key: string]: any;
+    marginTop?: number;
+    marginRight?: number;
+    marginBottom?: number;
+    marginLeft?: number;
 }
 //# sourceMappingURL=index.d.ts.map

@@ -7,8 +7,7 @@
  * @packageDocumentation
  */
 // Data loaders and API
-export { PremierLeagueAPI } from './data/api.js';
-export { getMatchResults, getStandings, getSquads } from './data/dataLoaders.js';
+export { PremierLeagueAPI } from './data/premierLeagueApi.js';
 // Chart components
 export { bumpChart } from './charts/bumpChart.js';
 export { giniIndexChart } from './charts/giniIndexChart.js';
