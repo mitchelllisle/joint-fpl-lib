@@ -1,6 +1,6 @@
 import * as Plot from "npm:@observablehq/plot";
-import {noDataTextMark} from "joint-fpl-lib/utils/noDataTextMark";
-import {colours} from "joint-fpl-lib/utils/colours";
+import {noDataTextMark} from "../utils/noDataTextMark";
+import {colours} from "../utils/colours";
 
 
 export function pointsPerWeek(data, {width} = {}) {
@@ -35,7 +35,7 @@ export function pointsPerWeek(data, {width} = {}) {
                 textAnchor: "start",
                 dx: 3
             })),
-            ...noDataTextMark(data)
+            ...noDataTextMark(data, Plot)
         ]
     });
 }

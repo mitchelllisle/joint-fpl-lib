@@ -1,5 +1,5 @@
 import * as Plot from "npm:@observablehq/plot";
-import {colours} from "joint-fpl-lib/utils/colours";
+import {colours} from "../utils/colours";
 
 export function playerScatter(data, {width} = {}) {
     console.log("Scatter chart - input data length:", data.length);

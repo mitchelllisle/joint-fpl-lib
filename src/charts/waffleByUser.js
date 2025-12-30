@@ -1,6 +1,6 @@
 import * as Plot from "npm:@observablehq/plot";
-import {noDataTextMark} from "joint-fpl-lib/utils/noDataTextMark";
-import {won, lose, draw} from "joint-fpl-lib/utils/colours";
+import {noDataTextMark} from "../utils/noDataTextMark";
+import {won, lose, draw} from "../utils/colours";
 
 export function waffleByUser(rawData, {width, height} = {}) {
     const totalGameweeks = 38;
@@ -21,7 +21,7 @@ export function waffleByUser(rawData, {width, height} = {}) {
         marginTop: 20,
         marginBottom: 70,
         marks: [
-            ...noDataTextMark(data),
+            ...noDataTextMark(data, Plot),
             Plot.axisFx({lineWidth: 10, anchor: "bottom"}),
             Plot.waffleX({length: 1}, {x: totalGameweeks, fillOpacity: 0.4, rx: "100%"}),
             Plot.waffleX(data, Plot.groupZ({x: "count"}, {

@@ -1,6 +1,6 @@
 import * as Plot from "npm:@observablehq/plot";
-import { noDataTextMark } from "joint-fpl-lib/utils/noDataTextMark";
-import { colours } from "joint-fpl-lib/utils/colours";
+import { noDataTextMark } from "../utils/noDataTextMark";
+import { colours } from "../utils/colours";
 export function pointsBarChart(data, { width } = {}) {
     const x = "gameweek";
     const y = "points";
@@ -21,7 +21,7 @@ export function pointsBarChart(data, { width } = {}) {
             Plot.ruleY([0]),
             Plot.barY(data, { x: x, y: y, fill: z, order: z, tip: true }),
             movingWindow,
-            ...noDataTextMark(data)
+            ...noDataTextMark(data, Plot)
         ]
     });
 }

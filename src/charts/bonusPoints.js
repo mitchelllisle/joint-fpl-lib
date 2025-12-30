@@ -1,6 +1,6 @@
 import * as Plot from "npm:@observablehq/plot";
 import * as d3 from "npm:d3";
-import {colours} from "joint-fpl-lib/utils/colours";
+import {colours} from "../utils/colours";
 
 export function bonusPoints(data, {width} = {}) {
     // Filter to only players with some minutes

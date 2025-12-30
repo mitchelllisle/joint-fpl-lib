@@ -1,5 +1,5 @@
 import * as Plot from "npm:@observablehq/plot";
-import { colours } from "joint-fpl-lib/utils/colours";
+import { colours } from "../utils/colours";
 export function benchPoints(data, { width } = {}) {
     // Position 12-15 are bench players (11 starting + 4 bench)
     const benchData = data.filter(d => d.position > 11);

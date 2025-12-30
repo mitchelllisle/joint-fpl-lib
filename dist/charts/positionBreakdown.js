@@ -1,5 +1,5 @@
 import * as Plot from "npm:@observablehq/plot";
-import { colours } from "joint-fpl-lib/utils/colours";
+import { colours } from "../utils/colours";
 export function positionBreakdown(data, { width } = {}) {
     // Only include starting 11
     const startingData = data.filter(d => d.position <= 11);

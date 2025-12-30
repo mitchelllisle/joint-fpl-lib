@@ -1,7 +1,7 @@
 import * as Plot from "npm:@observablehq/plot";
-import { colours } from "joint-fpl-lib/utils/colours";
-import { calculateGini } from "joint-fpl-lib/utils/gini";
-import { noDataTextMark } from "joint-fpl-lib/utils/noDataTextMark";
+import { colours } from "../utils/colours";
+import { calculateGini } from "../utils/gini";
+import { noDataTextMark } from "../utils/noDataTextMark";
 export function giniIndexChart(data, { width }) {
     console.log("Gini chart - input data length:", data.length);
     const owned = data.filter(d => d.owner !== null);
@@ -37,7 +37,7 @@ export function giniIndexChart(data, { width }) {
         marginLeft: 80,
         marks: [
             Plot.hexagon(giniData, Plot.dodgeX({ y: "gini", r: "maxPoints", fill: "owner", tip: true, fillOpacity: 0.8, strokeWidth: 10 })),
-            ...noDataTextMark(giniData)
+            ...noDataTextMark(giniData, Plot)
         ]
     });
 }
