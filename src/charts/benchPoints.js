@@ -1,7 +1,6 @@
-import * as Plot from "npm:@observablehq/plot";
 import {colours} from "../utils/colours";
 
-export function benchPoints(data, {width} = {}) {
+export function benchPoints(data, {Plot, d3, width} = {}) {
     // Position 12-15 are bench players (11 starting + 4 bench)
     const benchData = data.filter(d => d.position > 11);
     

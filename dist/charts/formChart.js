@@ -1,7 +1,5 @@
-import * as Plot from "npm:@observablehq/plot";
-import * as d3 from "npm:d3";
 import { colours } from "../utils/colours";
-export function formChart(data, { width } = {}) {
+export function formChart(data, { Plot, d3, width } = {}) {
     // Get last 5 gameweeks
     const maxGameweek = d3.max(data, d => d.gameweek);
     const last5 = data.filter(d => d.gameweek > maxGameweek - 5);

@@ -1,6 +1,5 @@
-import * as Plot from "npm:@observablehq/plot";
 import { colours } from "../utils/colours";
-export function playerScatter(data, { width } = {}) {
+export function playerScatter(data, { Plot, d3, width } = {}) {
     console.log("Scatter chart - input data length:", data.length);
     const x = "total_points";
     const y = "minutes";

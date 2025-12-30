@@ -1,9 +1,8 @@
-import * as Plot from "npm:@observablehq/plot";
 import {colours} from "../utils/colours";
 import {calculateGini} from "../utils/gini";
 import {noDataTextMark} from "../utils/noDataTextMark";
 
-export function giniIndexChart(data, {width}) {
+export function giniIndexChart(data, {Plot, d3, width} = {}) {
     console.log("Gini chart - input data length:", data.length);
     const owned = data.filter(d => d.owner !== null);
     console.log("Gini chart - owned data length:", owned.length);

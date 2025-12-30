@@ -1,7 +1,6 @@
-import * as Plot from "npm:@observablehq/plot";
 import {colours} from "../utils/colours";
 
-export function positionBreakdown(data, {width} = {}) {
+export function positionBreakdown(data, {Plot, d3, width} = {}) {
     // Only include starting 11
     const startingData = data.filter(d => d.position <= 11);
     

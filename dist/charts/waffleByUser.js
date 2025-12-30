@@ -1,4 +1,3 @@
-import * as Plot from "npm:@observablehq/plot";
 import { noDataTextMark } from "../utils/noDataTextMark";
 import { won, lose, draw } from "../utils/colours";
 export function waffleByUser(rawData, { width, height } = {}) {

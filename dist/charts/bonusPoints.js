@@ -1,7 +1,5 @@
-import * as Plot from "npm:@observablehq/plot";
-import * as d3 from "npm:d3";
 import { colours } from "../utils/colours";
-export function bonusPoints(data, { width } = {}) {
+export function bonusPoints(data, { Plot, d3, width } = {}) {
     // Filter to only players with some minutes
     const activeData = data.filter(d => d.minutes > 0);
     // Get top bonus earners for labels

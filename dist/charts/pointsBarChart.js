@@ -1,7 +1,6 @@
-import * as Plot from "npm:@observablehq/plot";
 import { noDataTextMark } from "../utils/noDataTextMark";
 import { colours } from "../utils/colours";
-export function pointsBarChart(data, { width } = {}) {
+export function pointsBarChart(data, { Plot, d3, width } = {}) {
     const x = "gameweek";
     const y = "points";
     const z = "team";

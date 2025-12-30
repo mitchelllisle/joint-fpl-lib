@@ -1,7 +1,5 @@
-import * as Plot from "npm:@observablehq/plot";
-import * as d3 from "npm:d3";
 import { colours } from "../utils/colours";
-export function consistencyBullet(data, { width } = {}) {
+export function consistencyBullet(data, { Plot, d3, width } = {}) {
     // Calculate stats per owner
     const ownerStats = {};
     data.forEach(row => {

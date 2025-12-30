@@ -1,4 +1,2 @@
-export function giniIndexChart(data: any, { width }: {
-    width: any;
-}): any;
+export function giniIndexChart(data: any, { Plot, d3, width }?: {}): any;
 //# sourceMappingURL=giniIndexChart.d.ts.map
