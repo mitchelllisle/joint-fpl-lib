@@ -15,11 +15,23 @@
       "import": "./dist/utils/colours.js",
       "types": "./dist/utils/colours.d.ts"
     },
+    "./utils/colours.js": {
+      "import": "./dist/utils/colours.js",
+      "types": "./dist/utils/colours.d.ts"
+    },
     "./utils/gini": {
       "import": "./dist/utils/gini.js",
       "types": "./dist/utils/gini.d.ts"
     },
+    "./utils/gini.js": {
+      "import": "./dist/utils/gini.js",
+      "types": "./dist/utils/gini.d.ts"
+    },
     "./utils/noDataTextMark": {
+      "import": "./dist/utils/noDataTextMark.js",
+      "types": "./dist/utils/noDataTextMark.d.ts"
+    },
+    "./utils/noDataTextMark.js": {
       "import": "./dist/utils/noDataTextMark.js",
       "types": "./dist/utils/noDataTextMark.d.ts"
     },
