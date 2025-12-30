@@ -8,14 +8,18 @@
  */
 
 // Data loaders and API
-export { PremierLeagueAPI } from './data/api.js';
-export { getMatchResults, getStandings, getSquads } from './data/dataLoaders.js';
+export { PremierLeagueAPI } from './data/premierLeagueApi.js';
 export type { 
   GameweekData, 
   MatchResult, 
   StandingsEntry, 
-  SquadPlayer 
-} from './data/dataLoaders.js';
+  SquadPlayer,
+  EntryHistory,
+  GameweekHistory,
+  PicksResponse,
+  Pick,
+  Substitution
+} from './data/premierLeagueApi.js';
 export type { BootstrapStatic, LeagueDetails } from './types/index.js';
 
 // Chart components
