@@ -1,6 +1,6 @@
 import {colours} from "../utils/colours.js";
 
-export function playerScatter(data, {Plot, d3, width} = {}) {
+export function playerScatter(data, {Plot, d3, width, title = "Player Minutes vs Points", subtitle = "Shows the relationship between minutes played and points scored clustered by owner."} = {}) {
     console.log("Scatter chart - input data length:", data.length);
     const x = "total_points";
     const y = "minutes";
@@ -11,8 +11,8 @@ export function playerScatter(data, {Plot, d3, width} = {}) {
     console.log("Scatter chart - owned:", owned.length, "unowned:", unowned.length);
 
     return Plot.plot({
-        title: "Player Minutes vs Points",
-        subtitle: "Shows the relationship between minutes played and points scored clustered by owner.",
+        title,
+        subtitle,
         width,
         grid: true,
         color: {...colours, legend: true},

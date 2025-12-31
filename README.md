@@ -18,7 +18,7 @@ const api = new PremierLeagueAPI();
 const data = await api.getMatchResults(LEAGUE_ID);
 
 // Create charts
-const chart = bumpChart(data, { width: 800 });
+const chart = bumpChart(data, { width: 800, title: "Custom Title", subtitle: "Custom Subtitle" });
 ```
 
 ## Features
