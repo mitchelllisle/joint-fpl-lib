@@ -2,14 +2,14 @@ import {noDataTextMark} from "../utils/noDataTextMark.js";
 import {colours} from "../utils/colours.js";
 
 
-export function pointsPerWeek(data, {Plot, d3, width} = {}) {
+export function pointsPerWeek(data, {Plot, d3, width, title = "Points per Gameweek", subtitle = "Shows a cumulative points total for each player over the course of the season"} = {}) {
     const x = "gameweek";
     const y = "total";
     const stroke = "team";
 
     return Plot.plot({
-        title: "Points per Gameweek",
-        subtitle: "Shows a cumulative points total for each player over the course of the season",
+        title,
+        subtitle,
         style: "overflow: visible;",
         width,
         y: {grid: true},

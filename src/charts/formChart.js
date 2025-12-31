@@ -1,13 +1,13 @@
 import {colours} from "../utils/colours.js";
 
-export function formChart(data, {Plot, d3, width} = {}) {
+export function formChart(data, {Plot, d3, width, title = "Last 5 Gameweeks Form", subtitle = "Position finished each gameweek. 1 = First place, 4 = Last place."} = {}) {
     // Get last 5 gameweeks
     const maxGameweek = d3.max(data, d => d.gameweek);
     const last5 = data.filter(d => d.gameweek > maxGameweek - 5);
     
     return Plot.plot({
-        title: "Last 5 Gameweeks Form",
-        subtitle: "Position finished each gameweek. 1 = First place, 4 = Last place.",
+        title,
+        subtitle,
         width,
         height: 180,
         marginLeft: 120,
