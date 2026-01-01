@@ -33,12 +33,13 @@ export function consistencyBullet(data, {Plot, d3, width, title = "Consistency &
     });
     
     const maxPoints = d3.max(chartData, d => d.best);
-    const minPoints = d3.min(chartData, d => d.worst) - 5;
+    const minPoints = d3.min(chartData, d => d.worst);
     
     return Plot.plot({
         title,
         subtitle,
         width,
+        marginTop: 40,
         marginLeft: 120,
         x: {label: "Points", domain: [minPoints, maxPoints]},
         y: {label: null},

@@ -1,6 +1,6 @@
 {
   "name": "joint-fpl-lib",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "TypeScript library for building Fantasy Premier League Draft dashboards with Observable Framework",
   "type": "module",
   "main": "./dist/index.js",
