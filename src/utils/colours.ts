@@ -48,6 +48,6 @@ export function createColorScheme(teamNames: string[], colors: string[]): Colour
 /**
  * Won/lose/draw colors for match result visualizations
  */
-export const won = "#6cc5b0";
-export const lose = "#ff725c";
+export const won = "#00ff85";
+export const lose = "#e90052";
 export const draw = "#ffab00";
