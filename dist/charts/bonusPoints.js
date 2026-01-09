@@ -1,5 +1,5 @@
 import { colours } from "../utils/colours.js";
-export function bonusPoints(data, { Plot, d3, width } = {}) {
+export function bonusPoints(data, { Plot, d3, width, title = "Bonus Points vs Total Points", subtitle = "Scatter plot showing all players. Owned players highlighted by team. Contours show player density." } = {}) {
     // Filter to only players with some minutes
     const activeData = data.filter(d => d.minutes > 0);
     // Get top bonus earners for labels
@@ -8,8 +8,8 @@ export function bonusPoints(data, { Plot, d3, width } = {}) {
         .sort((a, b) => b.bonus - a.bonus)
         .slice(0, 10);
     return Plot.plot({
-        title: "Bonus Points vs Total Points",
-        subtitle: "Scatter plot showing all players. Owned players highlighted by team. Contours show player density.",
+        title,
+        subtitle,
         width,
         height: 500,
         x: { label: "Total Points" },

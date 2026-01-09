@@ -1,5 +1,5 @@
 import { colours } from "../utils/colours.js";
-export function positionBreakdown(data, { Plot, d3, width } = {}) {
+export function positionBreakdown(data, { Plot, d3, width, title = "Points by Position", subtitle = "Total season points contribution by position (starting XI only)" } = {}) {
     // Only include starting 11
     const startingData = data.filter(d => d.position <= 11);
     // Map element_type to position names: 1=GK, 2=DEF, 3=MID, 4=FWD
@@ -19,8 +19,8 @@ export function positionBreakdown(data, { Plot, d3, width } = {}) {
     });
     const breakdown = Object.values(grouped);
     return Plot.plot({
-        title: "Points by Position",
-        subtitle: "Total season points contribution by position (starting XI only)",
+        title,
+        subtitle,
         width,
         marginLeft: 120,
         x: { label: "Total Points" },

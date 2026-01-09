@@ -1,6 +1,6 @@
-import {colours} from "../utils/colours.ts";
-import {calculateGini} from "../utils/gini.ts";
-import {noDataTextMark} from "../utils/noDataTextMark.ts";
+import {colours} from "../utils/colours.js";
+import {calculateGini} from "../utils/gini.js";
+import {noDataTextMark} from "../utils/noDataTextMark.js";
 
 export function giniIndexChart(data, {Plot, d3, width, title = "Gini Index by Owner", subtitle = `A measure of inequality in points scored. 0% = perfectly equal, 100 = one player has all the points. The lower the score, the more players are contributing the points. Size of hexagon represents max points scored by a single player.`} = {}) {
     console.log("Gini chart - input data length:", data.length);

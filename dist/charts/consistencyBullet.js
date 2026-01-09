@@ -1,5 +1,5 @@
 import { colours } from "../utils/colours.js";
-export function consistencyBullet(data, { Plot, d3, width } = {}) {
+export function consistencyBullet(data, { Plot, d3, width, title = "Consistency & Performance Range", subtitle = "Best/worst gameweek with average shown. Shorter bars = more consistent" } = {}) {
     // Calculate stats per owner
     const ownerStats = {};
     data.forEach(row => {
@@ -29,11 +29,12 @@ export function consistencyBullet(data, { Plot, d3, width } = {}) {
         };
     });
     const maxPoints = d3.max(chartData, d => d.best);
-    const minPoints = d3.min(chartData, d => d.worst) - 5;
+    const minPoints = d3.min(chartData, d => d.worst);
     return Plot.plot({
-        title: "Consistency & Performance Range",
-        subtitle: "Best/worst gameweek with average shown. Shorter bars = more consistent",
+        title,
+        subtitle,
         width,
+        marginTop: 40,
         marginLeft: 120,
         x: { label: "Points", domain: [minPoints, maxPoints] },
         y: { label: null },

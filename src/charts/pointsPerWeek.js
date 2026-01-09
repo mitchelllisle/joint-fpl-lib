@@ -1,5 +1,5 @@
-import {noDataTextMark} from "../utils/noDataTextMark.ts";
-import {colours} from "../utils/colours.ts";
+import {noDataTextMark} from "../utils/noDataTextMark.js";
+import {colours} from "../utils/colours.js";
 
 
 export function pointsPerWeek(data, {Plot, d3, width, title = "Points per Gameweek", subtitle = "Shows a cumulative points total for each player over the course of the season"} = {}) {

@@ -1,5 +1,5 @@
-import {noDataTextMark} from "../utils/noDataTextMark.ts";
-import {won, lose, draw} from "../utils/colours.ts";
+import {noDataTextMark} from "../utils/noDataTextMark.js";
+import {won, lose, draw} from "../utils/colours.js";
 
 export function waffleByUser(rawData, {width, height, title = "Match Results", subtitle = "Shows the results of each match played by each player"} = {}) {
     const totalGameweeks = 38;

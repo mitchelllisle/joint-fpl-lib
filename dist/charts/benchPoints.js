@@ -1,5 +1,5 @@
 import { colours } from "../utils/colours.js";
-export function benchPoints(data, { Plot, d3, width } = {}) {
+export function benchPoints(data, { Plot, d3, width, title = "Points Left on Bench", subtitle = "Total points scored by benched players this gameweek" } = {}) {
     // Position 12-15 are bench players (11 starting + 4 bench)
     const benchData = data.filter(d => d.position > 11);
     const benchByOwner = {};
@@ -16,8 +16,8 @@ export function benchPoints(data, { Plot, d3, width } = {}) {
     });
     const chartData = Object.values(benchByOwner);
     return Plot.plot({
-        title: "Points Left on Bench",
-        subtitle: "Total points scored by benched players this gameweek",
+        title,
+        subtitle,
         width,
         marginLeft: 120,
         x: { label: "Points on Bench" },

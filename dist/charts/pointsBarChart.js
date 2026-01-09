@@ -1,6 +1,6 @@
 import { noDataTextMark } from "../utils/noDataTextMark.js";
 import { colours } from "../utils/colours.js";
-export function pointsBarChart(data, { Plot, d3, width } = {}) {
+export function pointsBarChart(data, { Plot, d3, width, title = "Score per Gameweek", subtitle = "Shows the total score for each player over the course of the season" } = {}) {
     const x = "gameweek";
     const y = "points";
     const z = "team";
@@ -10,8 +10,8 @@ export function pointsBarChart(data, { Plot, d3, width } = {}) {
         movingWindow = Plot.lineY(data, Plot.windowY(5, { x: x, y: y, curve: "cardinal", stroke: "white" }));
     }
     return Plot.plot({
-        title: "Score per Gameweek",
-        subtitle: "Shows the total score for each player over the course of the season",
+        title,
+        subtitle,
         style: "overflow: visible;",
         width,
         y: { grid: true },

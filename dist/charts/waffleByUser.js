@@ -1,6 +1,6 @@
 import { noDataTextMark } from "../utils/noDataTextMark.js";
 import { won, lose, draw } from "../utils/colours.js";
-export function waffleByUser(rawData, { width, height } = {}) {
+export function waffleByUser(rawData, { width, height, title = "Match Results", subtitle = "Shows the results of each match played by each player" } = {}) {
     const totalGameweeks = 38;
     const data = rawData.flatMap(d => [
         ...Array(d.matches_won || 0).fill({ user: d.user, result: "won" }),
@@ -8,8 +8,8 @@ export function waffleByUser(rawData, { width, height } = {}) {
         ...Array(d.matches_drawn || 0).fill({ user: d.user, result: "drawn" })
     ]);
     return Plot.plot({
-        title: "Match Results",
-        subtitle: "Shows the results of each match played by each player",
+        title,
+        subtitle,
         axis: null,
         label: null,
         width,

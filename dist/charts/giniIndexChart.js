@@ -1,7 +1,7 @@
 import { colours } from "../utils/colours.js";
 import { calculateGini } from "../utils/gini.js";
 import { noDataTextMark } from "../utils/noDataTextMark.js";
-export function giniIndexChart(data, { Plot, d3, width } = {}) {
+export function giniIndexChart(data, { Plot, d3, width, title = "Gini Index by Owner", subtitle = `A measure of inequality in points scored. 0% = perfectly equal, 100 = one player has all the points. The lower the score, the more players are contributing the points. Size of hexagon represents max points scored by a single player.` } = {}) {
     console.log("Gini chart - input data length:", data.length);
     const owned = data.filter(d => d.owner !== null);
     console.log("Gini chart - owned data length:", owned.length);
@@ -24,8 +24,8 @@ export function giniIndexChart(data, { Plot, d3, width } = {}) {
     }));
     console.log("Gini chart - giniData:", giniData);
     return Plot.plot({
-        title: "Gini Index by Owner",
-        subtitle: `A measure of inequality in points scored. 0% = perfectly equal, 100 = one player has all the points. The lower the score, the more players are contributing the points. Size of hexagon represents max points scored by a single player.`,
+        title,
+        subtitle,
         width,
         height: 500,
         color: { ...colours, legend: false },

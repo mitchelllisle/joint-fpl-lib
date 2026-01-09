@@ -32,7 +32,7 @@ export declare function createColorScheme(teamNames: string[], colors: string[])
 /**
  * Won/lose/draw colors for match result visualizations
  */
-export declare const won = "#6cc5b0";
-export declare const lose = "#ff725c";
+export declare const won = "#00ff85";
+export declare const lose = "#e90052";
 export declare const draw = "#ffab00";
 //# sourceMappingURL=colours.d.ts.map

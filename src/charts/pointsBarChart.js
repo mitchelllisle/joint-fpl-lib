@@ -1,5 +1,5 @@
-import {noDataTextMark} from "../utils/noDataTextMark.ts";
-import {colours} from "../utils/colours.ts";
+import {noDataTextMark} from "../utils/noDataTextMark.js";
+import {colours} from "../utils/colours.js";
 
 export function pointsBarChart(data, {Plot, d3, width, title = "Score per Gameweek", subtitle = "Shows the total score for each player over the course of the season"} = {}) {
     const x = "gameweek";
