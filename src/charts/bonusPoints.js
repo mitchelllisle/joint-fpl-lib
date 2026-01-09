@@ -1,4 +1,4 @@
-import {colours} from "../utils/colours.ts";
+import {colours} from "../utils/colours.js";
 
 export function bonusPoints(data, {Plot, d3, width, title = "Bonus Points vs Total Points", subtitle = "Scatter plot showing all players. Owned players highlighted by team. Contours show player density."} = {}) {
     // Filter to only players with some minutes

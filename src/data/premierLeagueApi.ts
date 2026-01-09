@@ -260,8 +260,15 @@ export class PremierLeagueAPI {
     const details = await this.getDetails(leagueId);
     const bootstrap = await this.getBootstrapStatic();
     
-    const currentEvent = bootstrap.events.find((e: GameWeek) => e.is_current);
-    const currentGameweek = currentEvent ? currentEvent.id : 1;
+    // Draft API has events as {current: number, data: GameWeek[], next: number}
+    // Regular FPL API has events as GameWeek[]
+    let currentGameweek = 1;
+    if (Array.isArray(bootstrap.events)) {
+      const currentEvent = bootstrap.events.find((e: GameWeek) => e.is_current);
+      currentGameweek = currentEvent ? currentEvent.id : 1;
+    } else if (bootstrap.events && typeof bootstrap.events === 'object' && 'current' in bootstrap.events) {
+      currentGameweek = (bootstrap.events as any).current;
+    }
 
     // Create player map
     const playerMap: Record<number, Player> = {};
