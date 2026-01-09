@@ -15,5 +15,12 @@ export default defineConfig({
     },
     globals: true,
     environment: 'node'
+  },
+  resolve: {
+    alias: {
+      '../utils/noDataTextMark.js': '/Users/thrillhouse/Documents/libraries/joint-fpl-lib/src/utils/noDataTextMark.ts',
+      '../utils/gini.js': '/Users/thrillhouse/Documents/libraries/joint-fpl-lib/src/utils/gini.ts',
+      '../utils/colours.js': '/Users/thrillhouse/Documents/libraries/joint-fpl-lib/src/utils/colours.ts'
+    }
   }
 });
