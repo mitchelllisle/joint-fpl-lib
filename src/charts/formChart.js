@@ -1,4 +1,4 @@
-import {colours} from "../utils/colours.js";
+import {colours} from "../utils/colours.ts";
 
 export function formChart(data, {Plot, d3, width, title = "Last 5 Gameweeks Form", subtitle = "Position finished each gameweek. 1 = First place, 4 = Last place."} = {}) {
     // Get last 5 gameweeks

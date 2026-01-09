@@ -1,4 +1,4 @@
-import {colours} from "../utils/colours.js";
+import {colours} from "../utils/colours.ts";
 
 export function positionBreakdown(data, {Plot, d3, width, title = "Points by Position", subtitle = "Total season points contribution by position (starting XI only)"} = {}) {
     // Only include starting 11

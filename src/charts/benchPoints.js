@@ -1,4 +1,4 @@
-import {colours} from "../utils/colours.js";
+import {colours} from "../utils/colours.ts";
 
 export function benchPoints(data, {Plot, d3, width, title = "Points Left on Bench", subtitle = "Total points scored by benched players this gameweek"} = {}) {
     // Position 12-15 are bench players (11 starting + 4 bench)
