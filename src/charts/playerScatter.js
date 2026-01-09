@@ -1,4 +1,4 @@
-import {colours} from "../utils/colours.js";
+import {colours} from "../utils/colours.ts";
 
 export function playerScatter(data, {Plot, d3, width, title = "Player Minutes vs Points", subtitle = "Shows the relationship between minutes played and points scored clustered by owner."} = {}) {
     console.log("Scatter chart - input data length:", data.length);

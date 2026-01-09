@@ -102,11 +102,12 @@ export class PremierLeagueAPI {
 
   /**
    * Fetch bootstrap-static data containing all game information
+   * Uses Draft API endpoint to ensure player IDs match with picks data
    * 
    * @returns Promise resolving to bootstrap data (players, teams, gameweeks)
    */
   async getBootstrapStatic(): Promise<BootstrapStatic> {
-    const response = await fetch(`${this.baseUrl}/bootstrap-static/`);
+    const response = await fetch(`${this.draftBaseUrl}/bootstrap-static`);
     if (!response.ok) {
       throw new Error(`Failed to fetch bootstrap-static: ${response.statusText}`);
     }
