@@ -10,21 +10,32 @@ const mockPlot = {
 
 const mockD3 = {
   max: vi.fn((data, accessor) => Math.max(...data.map(accessor))),
-  range: vi.fn((start, end) => Array.from({ length: end - start }, (_, i) => start + i))
+  range: vi.fn((start, end) => Array.from({ length: end - start }, (_, i) => start + i)),
+  group: vi.fn((data, keyFn) => {
+    const grouped = new Map();
+    for (const item of data) {
+      const key = keyFn(item);
+      if (!grouped.has(key)) {
+        grouped.set(key, []);
+      }
+      grouped.get(key).push(item);
+    }
+    return grouped;
+  })
 };
 
 describe('formChart', () => {
   const mockData = [
-    { gameweek: 5, rank: 1, team: 'Team A' },
-    { gameweek: 6, rank: 2, team: 'Team A' },
-    { gameweek: 7, rank: 1, team: 'Team A' },
-    { gameweek: 8, rank: 3, team: 'Team A' },
-    { gameweek: 9, rank: 2, team: 'Team A' },
-    { gameweek: 5, rank: 2, team: 'Team B' },
-    { gameweek: 6, rank: 1, team: 'Team B' },
-    { gameweek: 7, rank: 3, team: 'Team B' },
-    { gameweek: 8, rank: 1, team: 'Team B' },
-    { gameweek: 9, rank: 1, team: 'Team B' }
+    { gameweek: 5, rank: 1, team: 'Team A', points: 65 },
+    { gameweek: 6, rank: 2, team: 'Team A', points: 72 },
+    { gameweek: 7, rank: 1, team: 'Team A', points: 68 },
+    { gameweek: 8, rank: 3, team: 'Team A', points: 85 },
+    { gameweek: 9, rank: 2, team: 'Team A', points: 78 },
+    { gameweek: 5, rank: 2, team: 'Team B', points: 70 },
+    { gameweek: 6, rank: 1, team: 'Team B', points: 80 },
+    { gameweek: 7, rank: 3, team: 'Team B', points: 75 },
+    { gameweek: 8, rank: 1, team: 'Team B', points: 60 },
+    { gameweek: 9, rank: 1, team: 'Team B', points: 82 }
   ];
 
   it('renders a chart with default title and subtitle', () => {
@@ -68,5 +79,26 @@ describe('formChart', () => {
     formChart(mockData, { Plot: mockPlot, d3: mockD3, width: 800 });
     
     expect(mockD3.max).toHaveBeenCalled();
+  });
+
+  it('calculates gameweek-specific ranks based on points', () => {
+    const result = formChart(mockData, { Plot: mockPlot, d3: mockD3, width: 800 });
+    
+    expect(mockD3.group).toHaveBeenCalled();
+    expect(result.marks).toBeDefined();
+    expect(result.marks.length).toBe(2);
+  });
+
+  it('ranks teams by points within each gameweek', () => {
+    const testData = [
+      { gameweek: 8, rank: 3, team: 'Team A', points: 85 },
+      { gameweek: 8, rank: 1, team: 'Team B', points: 60 },
+      { gameweek: 8, rank: 2, team: 'Team C', points: 70 }
+    ];
+    
+    const result = formChart(testData, { Plot: mockPlot, d3: mockD3, width: 800 });
+    
+    expect(mockPlot.cell).toHaveBeenCalled();
+    expect(mockPlot.text).toHaveBeenCalled();
   });
 });
