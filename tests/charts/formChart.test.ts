@@ -26,16 +26,16 @@ const mockD3 = {
 
 describe('formChart', () => {
   const mockData = [
-    { gameweek: 5, rank: 1, team: 'Team A', event_points: 65 },
-    { gameweek: 6, rank: 2, team: 'Team A', event_points: 72 },
-    { gameweek: 7, rank: 1, team: 'Team A', event_points: 68 },
-    { gameweek: 8, rank: 3, team: 'Team A', event_points: 85 },
-    { gameweek: 9, rank: 2, team: 'Team A', event_points: 78 },
-    { gameweek: 5, rank: 2, team: 'Team B', event_points: 70 },
-    { gameweek: 6, rank: 1, team: 'Team B', event_points: 80 },
-    { gameweek: 7, rank: 3, team: 'Team B', event_points: 75 },
-    { gameweek: 8, rank: 1, team: 'Team B', event_points: 60 },
-    { gameweek: 9, rank: 1, team: 'Team B', event_points: 82 }
+    { gameweek: 5, rank: 1, team: 'Team A', points: 65 },
+    { gameweek: 6, rank: 2, team: 'Team A', points: 72 },
+    { gameweek: 7, rank: 1, team: 'Team A', points: 68 },
+    { gameweek: 8, rank: 3, team: 'Team A', points: 85 },
+    { gameweek: 9, rank: 2, team: 'Team A', points: 78 },
+    { gameweek: 5, rank: 2, team: 'Team B', points: 70 },
+    { gameweek: 6, rank: 1, team: 'Team B', points: 80 },
+    { gameweek: 7, rank: 3, team: 'Team B', points: 75 },
+    { gameweek: 8, rank: 1, team: 'Team B', points: 60 },
+    { gameweek: 9, rank: 1, team: 'Team B', points: 82 }
   ];
 
   it('renders a chart with default title and subtitle', () => {
@@ -91,9 +91,9 @@ describe('formChart', () => {
 
   it('ranks teams by points within each gameweek', () => {
     const testData = [
-      { gameweek: 8, rank: 3, team: 'Team A', event_points: 85 },
-      { gameweek: 8, rank: 1, team: 'Team B', event_points: 60 },
-      { gameweek: 8, rank: 2, team: 'Team C', event_points: 70 }
+      { gameweek: 8, rank: 3, team: 'Team A', points: 85 },
+      { gameweek: 8, rank: 1, team: 'Team B', points: 60 },
+      { gameweek: 8, rank: 2, team: 'Team C', points: 70 }
     ];
     
     const result = formChart(testData, { Plot: mockPlot, d3: mockD3, width: 800 });
