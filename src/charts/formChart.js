@@ -11,13 +11,13 @@ export function formChart(data, {Plot, d3, width, title = "Last 5 Gameweeks Form
     
     for (const [gameweek, teams] of gameweekRanks) {
         // Sort teams by points (descending) for this gameweek
-        const sorted = [...teams].sort((a, b) => (b.points || 0) - (a.points || 0));
+        const sorted = [...teams].sort((a, b) => (b.event_points || 0) - (a.event_points || 0));
         
         // Assign ranks, handling ties
         let currentRank = 1;
         sorted.forEach((team, index) => {
             // If not first and points are same as previous, use same rank
-            if (index > 0 && team.points === sorted[index - 1].points) {
+            if (index > 0 && team.event_points === sorted[index - 1].event_points) {
                 rankedData.push({
                     ...team,
                     gameweekRank: sorted[index - 1].gameweekRank || currentRank
