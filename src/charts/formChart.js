@@ -5,6 +5,33 @@ export function formChart(data, {Plot, d3, width, title = "Last 5 Gameweeks Form
     const maxGameweek = d3.max(data, d => d.gameweek);
     const last5 = data.filter(d => d.gameweek > maxGameweek - 5);
     
+    // Calculate gameweek-specific ranks based on points scored that week
+    const gameweekRanks = d3.group(last5, d => d.gameweek);
+    const rankedData = [];
+    
+    for (const [gameweek, teams] of gameweekRanks) {
+        // Sort teams by points (descending) for this gameweek
+        const sorted = [...teams].sort((a, b) => (b.points || 0) - (a.points || 0));
+        
+        // Assign ranks, handling ties
+        let currentRank = 1;
+        sorted.forEach((team, index) => {
+            // If not first and points are same as previous, use same rank
+            if (index > 0 && team.points === sorted[index - 1].points) {
+                rankedData.push({
+                    ...team,
+                    gameweekRank: sorted[index - 1].gameweekRank || currentRank
+                });
+            } else {
+                rankedData.push({
+                    ...team,
+                    gameweekRank: currentRank
+                });
+                currentRank = index + 1;
+            }
+        });
+    }
+    
     return Plot.plot({
         title,
         subtitle,
@@ -27,17 +54,17 @@ export function formChart(data, {Plot, d3, width, title = "Last 5 Gameweeks Form
             label: "Position"
         },
         marks: [
-            Plot.cell(last5, {
+            Plot.cell(rankedData, {
                 x: "gameweek",
                 y: "team",
-                fill: "rank",
+                fill: "gameweekRank",
                 tip: true,
                 inset: 0
             }),
-            Plot.text(last5, {
+            Plot.text(rankedData, {
                 x: "gameweek",
                 y: "team",
-                text: d => d.rank === 1 ? "1st" : d.rank === 2 ? "2nd" : d.rank === 3 ? "3rd" : "4th",
+                text: d => d.gameweekRank === 1 ? "1st" : d.gameweekRank === 2 ? "2nd" : d.gameweekRank === 3 ? "3rd" : "4th",
                 fill: "white",
                 fontWeight: "bold",
                 fontSize: 11
